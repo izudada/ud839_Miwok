@@ -18,6 +18,7 @@ package com.example.android.miwok;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 // import android.support.v7.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -29,10 +30,47 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content of the activity to use the activity_main.xml layout file
         setContentView(R.layout.activity_main);
-    }
 
-    public void OpenNumbersPage(View view) {
-        Intent numberActivity = new Intent(this, NumbersActivity.class);
-        startActivity(numberActivity);
+        //  Get all text views
+        TextView numberTextView = (TextView) findViewById(R.id.numbers);
+        TextView familyTextView = (TextView) findViewById(R.id.family);
+        TextView colorTextView = (TextView) findViewById(R.id.colors);
+        TextView phraseTextView = (TextView) findViewById(R.id.phrases);
+
+        // Onclick listener on numbers text view
+        numberTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent numberActivity = new Intent(MainActivity.this, NumbersActivity.class);
+                startActivity(numberActivity);
+            }
+        });
+
+        // Onclick listener on family text view
+        familyTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent familyActivity = new Intent(MainActivity.this, FamilyMembersActivity.class);
+                startActivity(familyActivity);
+            }
+        });
+
+        // Onclick listener on color text view
+        colorTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent colorActivity = new Intent(MainActivity.this, ColorsActivity.class);
+                startActivity(colorActivity);
+            }
+        });
+
+        // Onclick listener on phrases text view
+        phraseTextView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent phraseActivity = new Intent(MainActivity.this, PhrasesActivity.class);
+                startActivity(phraseActivity);
+            }
+        });
     }
 }
